@@ -1,0 +1,9 @@
+<div class="container py-5">
+  <h1>Créer une nouvelle liste</h1>
+
+  <%= simple_form_for(@list) do |f| %>
+    <%= f.input :name, placeholder: "ex film d'horreur " %>
+    <%= f.submit "Créer la liste", class: "btn btn-primary" %>
+    <%= link_to "Annuler", lists_path, class: "btn btn-outline-secondary" %>
+  <% end %>
+</div>

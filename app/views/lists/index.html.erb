@@ -1,0 +1,20 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Mes Listes de Films</h1>
+    <%= link_to "Créer une liste", new_list_path, class: "btn btn-primary" %>
+  </div>
+
+  <div class="row">
+    <% @lists.each do |list| %>
+      <div class="col-4 mb-3">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title"><%= list.name %></h5>
+            <p class="text-muted"><%= list.movies.count %> film(s) enregistré(s)</p>
+            <%= link_to "Voir les détails", list_path(list), class: "btn btn-outline-primary btn-sm" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

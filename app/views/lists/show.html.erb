@@ -1,0 +1,13 @@
+<h1><%= @list.name %></h1>
+<div class="row justify-content-center">
+  <div class="col-12 col-md-6">
+    <div class="bg-white p-4 shadow-sm rounded">
+      <h3>Ajouter un film à cette liste</h3>
+      <%= simple_form_for [@list, @bookmark] do |f| %>
+        <%= f.association :movie, collection: Movie.all.order(:title), prompt: "Choisir un film" %>
+        <%= f.input :comment, placeholder: "Ton avis sur ce film..." %>
+        <%= f.submit "Ajouter au signet", class: "btn btn-primary w-100" %>
+      <% end %>
+    </div>
+  </div>
+</div>
