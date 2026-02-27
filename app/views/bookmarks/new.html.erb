@@ -1,16 +1,12 @@
-<div class="container py-5">
-  <h1>Ajouter un film à la liste : <%= @list.name %></h1>
 
-  <%= simple_form_for [@list, @bookmark] do |f| %>
-    <%# f.association crée le menu déroulant automatiquement %>
-    <%= f.association :movie,
-                      collection: Movie.all.order(:title),
-                      prompt: "Choisissez un film",
-                      label: "Sélectionnez votre film" %>
+<div class="container">
 
-    <%= f.input :comment, placeholder: "Pourquoi ajoutez-vous ce film ?" %>
+	<h1>Créer un commentaire pour un film</h1>
 
-    <%= f.submit "Ajouter le signet", class: "btn btn-primary" %>
-    <%= link_to "Annuler", list_path(@list), class: "btn btn-outline-secondary" %>
-  <% end %>
+	<%= simple_form_for [@list, @bookmark] do |f| %>
+		<%= f.input :comment %>
+		<%= f.association :movie, collection: Movie.all %>
+		<%= f.button :submit %>
+	<% end %>
+
 </div>
